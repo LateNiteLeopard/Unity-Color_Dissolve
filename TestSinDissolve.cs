@@ -10,24 +10,24 @@ namespace Nieva.Effects
 {
     public class TestSinDissolve : MonoBehaviour
     {
-#if ODIN_INSPECTOR_3
+		#if ODIN_INSPECTOR_3
 		[BoxGroup("Test Settings")]
-        [SerializeField] private Material material;
+		[SerializeField] private Material material;
 		[BoxGroup("Test Settings"), ColorUsage(true, true)]
 		[SerializeField] private Color color = Color.white;
 		[BoxGroup("Test Settings")]
-        [SerializeField] private AnimationCurve curve;
+		[SerializeField] private AnimationCurve curve;
 		[BoxGroup("Test Settings")]
 		[SerializeField] private float waitAfter;
 		[BoxGroup("Test Settings")]
 		[SerializeField] private float speed;
-#else
-        [SerializeField] private Material material;
+		#else
+		[SerializeField] private Material material;
 		[SerializeField] private Color color = Color.white;
-        [SerializeField] private AnimationCurve curve;
+		[SerializeField] private AnimationCurve curve;
 		[SerializeField] private float waitAfter;
 		[SerializeField] private float speed;
-#endif
+		#endif
 		private void Start()
 		{
 			material = GetComponent<SpriteRenderer>().material;
