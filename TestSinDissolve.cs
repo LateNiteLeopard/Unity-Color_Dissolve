@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#if ODIN_INSPECTOR_3
 using Sirenix.OdinInspector;
+#endif
 
 namespace Nieva.Effects
 {
     public class TestSinDissolve : MonoBehaviour
     {
+#if ODIN_INSPECTOR_3
 		[BoxGroup("Test Settings")]
         [SerializeField] private Material material;
 		[BoxGroup("Test Settings"), ColorUsage(true, true)]
@@ -18,7 +21,13 @@ namespace Nieva.Effects
 		[SerializeField] private float waitAfter;
 		[BoxGroup("Test Settings")]
 		[SerializeField] private float speed;
-
+#else
+        [SerializeField] private Material material;
+		[SerializeField] private Color color = Color.white;
+        [SerializeField] private AnimationCurve curve;
+		[SerializeField] private float waitAfter;
+		[SerializeField] private float speed;
+#endif
 		private void Start()
 		{
 			material = GetComponent<SpriteRenderer>().material;
